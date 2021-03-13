@@ -3,7 +3,9 @@ import React, { useState, createContext } from "react";
 
 export const ContextSignin = createContext();
 
-const SigninContext = ({ children }) => {
+const SigninContext = (props) => {
+  const { children } = props
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
