@@ -1,9 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Login from './components/Login';
 import SigninContext from './context/sign-in';
 import React from 'react';
-import Image from './components/Imagen'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import Home from './views/Home';
+import Login from './views/Login';
 
 const intialData = [
   {
@@ -91,11 +92,22 @@ function App() {
   return (
     <div>
       <SigninContext>
-        <Image />
-        <Login />
+        <Router>
+          <nav>
+            <ul style={{ display: 'flex', gap: 10, alignItems: 'center', listStyle: 'none'}}>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/other">Other</Link></li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/login' exact component={Login} />
+          </Switch>
+        </Router>
       </SigninContext>
       
-      <hr />
+      {/* <hr />
       <button onClick={showInicio}>inicio</button>
       <button onClick={showAlumnos}>profesores</button>
       <button onClick={showPadres}>alumnos</button>
@@ -107,7 +119,7 @@ function App() {
       </div>
 
       <hr />
-      <Dropdow />
+      <Dropdow /> */}
     </div>
   );
 }
