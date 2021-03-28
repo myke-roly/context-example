@@ -16,11 +16,7 @@ const Login = () => {
   return (
     <div>
       <h1>login</h1>
-      <form onSubmit={async (e) => {
-        await sendForm(e)
-        history.push('/')
-      }
-        }>
+      <form onSubmit={sendForm}>
         <label>Nombre </label>
         <input type="text" value={data.email} onChange={handleChangeEmail} required />
         <br />

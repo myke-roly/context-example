@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, createContext } from "react";
+import { useHistory } from 'react-router-dom'
 
 export const ContextSignin = createContext();
 
 const SigninContext = (props) => {
   const { children } = props
+  const history = useHistory()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,8 +37,12 @@ const SigninContext = (props) => {
     e.preventDefault(); //para que no recargue el form se pone el preventdefault
 
     const res = await axios.post(url, data);
-    // guardamos el token en el localStorage
-    saveToken(res.data.token);
+    const status = res.status
+    if(status === 200) {
+      // guardamos el token en el localStorage
+      saveToken(res.data.token);
+      history.push('/')
+    }
   };
 
   const isAuth = () => {

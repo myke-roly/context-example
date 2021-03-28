@@ -91,8 +91,8 @@ function App() {
 
   return (
     <div>
-      <SigninContext>
         <Router>
+          <SigninContext>
           <nav>
             <ul style={{ display: 'flex', gap: 10, alignItems: 'center', listStyle: 'none'}}>
             <li><Link to="/">Home</Link></li>
@@ -104,8 +104,8 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/login' exact component={Login} />
           </Switch>
-        </Router>
-      </SigninContext>
+        </SigninContext>
+      </Router>
       
       {/* <hr />
       <button onClick={showInicio}>inicio</button>
