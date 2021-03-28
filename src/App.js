@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import SigninContext from './context/sign-in';
 import React from 'react';
+import Image from './components/Imagen'
 
 const intialData = [
   {
@@ -90,6 +91,7 @@ function App() {
   return (
     <div>
       <SigninContext>
+        <Image />
         <Login />
       </SigninContext>
       
