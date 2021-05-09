@@ -5,6 +5,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Home from './views/Home';
 import Login from './views/Login';
+import Questions from './views/Queations';
 
 const intialData = [
   {
@@ -89,15 +90,23 @@ function App() {
     setItems(alumnos)
   }
 
+  const getImage = (img) => {
+    const image = require(`./assets/${img}.png`)
+    return image.default
+  }
+
   return (
     <div>
-        <Router>
-          <SigninContext>
+      <img src={getImage('logo192')} alt="imagen" />
+      <Questions />
+
+      {/* <Router>
+        <SigninContext>
           <nav>
-            <ul style={{ display: 'flex', gap: 10, alignItems: 'center', listStyle: 'none'}}>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/other">Other</Link></li>
+            <ul style={{ display: 'flex', gap: 10, alignItems: 'center', listStyle: 'none' }}>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/other">Other</Link></li>
             </ul>
           </nav>
           <Switch>
@@ -105,8 +114,8 @@ function App() {
             <Route path='/login' exact component={Login} />
           </Switch>
         </SigninContext>
-      </Router>
-      
+      </Router> */}
+
       {/* <hr />
       <button onClick={showInicio}>inicio</button>
       <button onClick={showAlumnos}>profesores</button>
